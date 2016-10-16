@@ -41,7 +41,7 @@ $("#ckform").submit(function(event){
         console.log(textStatus);
         console.log(jqXHR);
     //location.reload();
-    window.location.href = "success2.html";
+    window.location.href = "success.html";
 
     });
 
