@@ -40,6 +40,8 @@ P2P Buisness Solution
 	<meta name="twitter:url" content="" />
 	<meta name="twitter:card" content="" />
 
+
+
 	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 	<link rel="shortcut icon" href="favicon.ico">
 
@@ -70,7 +72,7 @@ P2P Buisness Solution
 	<!--[if lt IE 9]>
 	<script src="js/respond.min.js"></script>
 	<![endif]-->
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 	</head>
 	<body>
 		
@@ -84,7 +86,7 @@ P2P Buisness Solution
 			<li><a href="#" data-nav-section="benefits">Team</a></li>
 			
 			<li><a href="#" data-nav-section="pricing">Pricing</a></li>
-			<li><a href="#" data-nav-section="subscribe">Contact</a></li>
+			<li><a href="#" data-nav-section="subscribe">Subscribe</a></li>
 			<li><a href="signup.html">Register</a></li>
 			
 			
@@ -437,20 +439,20 @@ Gain followers and showcasse your finest recipes and discover new dishes in the 
 				<div id="fh5co-subscribe" data-section="subscribe">
 					<div class="container">
 						<div class="row animate-box">
-							<form action="#" method="post">
+							<form id="ckform"action="#" method="post">
 								<div class="col-md-3 col-sm-3">
 									<div class="form-group">
-										<input type="text" class="form-control" placeholder="First Name">
+										<input name=firstname type="text" required class="form-control" placeholder="First Name">
 									</div>
 								</div>
 								<div class="col-md-3 col-sm-3">
 									<div class="form-group">
-										<input type="text" class="form-control" placeholder="Last Name">
+										<input type="text" name=lastname required class="form-control" placeholder="Last Name">
 									</div>
 								</div>
 								<div class="col-md-3 col-sm-3">
 									<div class="form-group">
-										<input type="email" class="form-control" placeholder="Email">
+										<input type="email" name=email  required class="form-control" placeholder="Email">
 									</div>
 								</div>
 								<div class="col-md-3 col-sm-3">
@@ -524,6 +526,24 @@ Gain followers and showcasse your finest recipes and discover new dishes in the 
 		</footer>
 	</div>
 
+	 <script>
+       $('#input-form').one('submit',function(){
+           var v1 = encodeURIComponent($('#firstname').val());
+           var v2 = encodeURIComponent($('#lastname').val());
+           var q1 = "entry.427740901";
+           var q2 = "entry.713370524";
+
+           var baseURL = 'https://docs.google.com/spreadsheets/d/1THHYo6M7Bacg7cWL7I8uNVrtmT9BhAEl2s4y0bWJELw/edit#gid=0';
+           var submitRef = '&submit=-676819381632821464';
+           var submitURL = (baseURL + q1 + "=" + v1 + "&" + q2 + "=" + v2 + submitRef);
+           console.log(submitURL);
+           $(this)[0].action=submitURL;
+           $('#input-feedback').text('Thank You!');
+       });
+   </script>
+
+     <!-- Custom Theme JavaScript -->
+     <script src='google-sheet2.js'></script>
 
 	<!-- jQuery -->
 	<script src="js/jquery.min.js"></script>
